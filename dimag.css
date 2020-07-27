@@ -1,0 +1,190 @@
+body:not(.title-tagline-hidden) .site-branding-text {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+#content h2 {color: #c63418 ;}
+#content h2.ugb-feature__title {color: #222 ;}
+.ecs-event-list li {margin-top: 0.5em;}
+h1, h2, h3, h4, h5, h6 { 
+	padding: 0.5em 0 0;
+	margin: 0 0 0.5em ; }
+.tribe-events-single-event-description h1, .tribe-events-single-event-description h2, .tribe-events-single-event-description h3, .tribe-events-single-event-description h4, .tribe-events-single-event-description h5, .tribe-events-single-event-description h6 { 
+	text-align: center;}
+
+.dimag-papers  {padding-bottom:10px;color:#555;}
+.dimag-papers  a, 
+.dimag-papers  a:link, 
+.dimag-papers  a:visited
+	{color:#5b709e; 
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	-webkit-transition:none;
+	transition:none;
+}
+.dimag-papers  a.doi {font-weight: 100;color:#555;font-size:small;}
+.dimag-papers  a.arxiv {font-weight: 100;color:#555;font-size:small;}
+#index-researcher label {display:inline-block;padding-right:1em;}
+.uagb-team__image-wrap {min-width:200px;}
+.wp-block-getwid-recent-posts .wp-block-getwid-recent-posts__post .wp-block-getwid-recent-posts__post-thumbnail a img {   border-radius: .5em;}
+.post-thumbnail a img {border-radius:.5em; }
+ul {margin: 0 0 0;}
+.tribe-linked-type-tribe_ext_speaker a {text-decoration:underline;}
+dt.tribe-events-event-categories { 
+     border-bottom:2px groove #777; /* This creates the border. Replace black with whatever color you want. */
+	text-align:center;
+	color:#847d84 !important;
+    margin: 0 auto; /* This will center the border. */
+	margin-bottom:1vh;
+width:50%;
+	font-size: 80%;
+	font-weight:300;}
+
+body .tribe-events-single-event-title
+{
+	border-top: 8px solid #c63418;
+	border-bottom: 4px solid #847d84;
+	padding: 1vh 0 1vh 0;
+
+}
+ol.start { 
+    counter-reset: mycounter; 
+}
+ol.start > li, ol.continue > li {
+    list-style: none;
+}
+ol.start > li:before, ol.continue > li:before { 
+    content: counter(mycounter) ". "; 
+    counter-increment: mycounter;
+  margin-left:-1.3em;
+}
+
+@media screen {
+	div.tribe-events-single-event-description a {
+		text-decoration:underline !important;
+	}
+	img.logo-bottom {
+		float:right;
+	}
+}
+@media only screen and (max-width:768px) {
+#tribe-events-header .tribe-events-sub-nav li a {display:block;}
+}
+@media print {
+
+#content,#page {
+width: 100%; 
+margin: 0; 
+float: none;
+}
+.single-tribe_events .content-area {
+/*margin-top: 0px !important;*/
+}
+
+/** Setting margins */       
+@page { margin:1cm }
+
+
+.single-tribe_events img.logo-bottom {
+		position: absolute;
+		top: 0; left:1%;
+		margin-left:-10.74px;
+	}
+.single-tribe_events .wrap {
+	padding-left: 1% !important;
+	padding-right: 1% !important;
+	padding-bottom: 0;
+	padding-top:0;
+}
+.single-tribe_events .site-header {display:none !important;}
+.single-tribe_events .tribe-events-event-categories
+ {text-align:right ;width:100%;
+	border-bottom:0;height:0;}
+.single-tribe_events .tribe-events-content::after{
+content:"IBS Discrete Mathematics Group (기초과학연구원 이산수학그룹)";
+text-indent:0;
+font-weight: 700;
+text-align: right;
+display:block;
+padding-top: 3vh;
+line-height:initial;
+color:#222;
+}
+.single-tribe_events .tribe-events-single-event-title {
+	margin-top: 68.9px;
+}
+.single-tribe_events .tribe-events-event-categories{
+	font-weight:600;
+}
+.single-tribe_events .tribe-events-notices {
+	display:none !important;
+}
+.single-tribe_events .tribe-events-event-categories::before{
+content:"대전 유성구 엑스포로 55 IBS 이산수학그룹\A https://dimag.ibs.re.kr/";
+white-space:pre;
+text-indent:0;
+font-weight: 200;
+text-align: right;
+display:block;
+color:#222;
+}
+
+
+dt.tribe-events-event-categories { 
+	margin-bottom:3vh;
+}
+#content #tribe-events-content h2 {color: #c63418 !important ; 
+	page-break-after: avoid;
+}
+#content .page-break {
+	page-break-before: always;
+}
+.tribe-events-back, .tribe-events-next, .tribe-events-before-html, .tribe-events-after-html, #tribe-events-footer,.tribe-events-single-section,.tribe-events-cal-links, .rtec-attendee-list-meta, #rtec{display:none !important;}
+.tribe-events-single-event-description p {
+	font-size:90%;
+line-height: 1.5 !important;
+}
+.site-content {padding: 0 0 0 !important;}
+.site-description {text-indent: -9999px;line-height:0;}
+.site-title {font-size:16pt;}
+h1 {color:#222 !important;font-weight:800;}
+.site-description::after{
+content:"기초과학연구원 이산수학그룹 https://dimag.ibs.re.kr/";
+text-indent:0;
+display:block;
+line-height:initial;
+color:#222;
+}
+.custom-header {margin-bottom:0px !important;}
+.custom-header-media img {display:none !important;}
+.site-branding {display:block !important;
+	margin-bottom: 0em !important;
+	padding-bottom: 0;
+}
+.custom-header-media:before {height:0;}
+body:not(.title-tagline-hidden) .site-branding-text {
+    background: #ffffff !important;
+}
+.has-header-image.twentyseventeen-front-page .site-branding,
+.has-header-video.twentyseventeen-front-page .site-branding,
+.has-header-image.home.blog .site-branding,
+.has-header-video.home.blog .site-branding {
+	height: 10em !important;
+}
+.has-header-image.twentyseventeen-front-page .custom-header, .has-header-video.twentyseventeen-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header
+{
+	height: 7vh !important;
+}
+.single-tribe_events .all-linked-tribe_ext_speaker > dl {
+	margin-bottom:0px !important;
+	margin-block-start: 0px !important;
+	margin-block-end: 0px !important;
+}
+.tribe-events-single-event-title:before {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+}
+
+}
+
