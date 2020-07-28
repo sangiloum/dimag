@@ -185,6 +185,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
     margin: 0 auto; /* This will center the border. */
     width: 50%; /* Change this to whatever width you want. */
 }
+#index-researcher {display:none;}
 
 }
 
