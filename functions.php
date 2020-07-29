@@ -107,26 +107,26 @@ function dimag_paper_content(){
 	else:
 		echo $content;
 	endif;
-		
-	if (!empty($doi) && !(substr($doi,0,4)==="http")) {
-		echo sprintf(
-		' <a class="doi" href="https://doi.org/%1$s">doi:%2$s</a>',
-		str_replace('%2F','/',rawurlencode($doi)),$doi);
-	}
-	if (!empty($arxiv)) {
-		echo sprintf(
-		' <a class="arxiv" href="https://arxiv.org/abs/%1$s">arXiv:%2$s</a>',
-		rawurlencode($arxiv),$arxiv);
-	}
 	echo ' ';
 	edit_post_link(
 		'<span class="dashicons dashicons-edit"></span>',
 		'<span class="edit-link">',
 		'</span>'
 	);
+	echo '<div class="paperinfo">';
+	if (!empty($doi) && !(substr($doi,0,4)==="http")) {
+		echo sprintf(
+		' <a class="doi" href="https://doi.org/%1$s"><span class="lb">doi</span>%2$s</a>',
+		str_replace('%2F','/',rawurlencode($doi)),$doi);
+	}
+	if (!empty($arxiv)) {
+		echo sprintf(
+		' <a class="arxiv" href="https://arxiv.org/abs/%1$s"><span class="lb">arXiv</span>%2$s</a>',
+		rawurlencode($arxiv),$arxiv);
+	}
 	echo '<span class="lastupdated">Last update: ';
 	the_modified_date('F j, Y');
-	echo '</span>';
+	echo '</span></div>';
 }
 function list_talks($atts){
     static $paper_no=0;

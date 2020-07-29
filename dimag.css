@@ -12,6 +12,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: center;}
 
 .dimag-papers  {padding-bottom:10px;color:#555;}
+.dimag-papers  li .paperinfo {padding-bottom:3vh;}
 .dimag-papers  a, 
 .dimag-papers  a:link, 
 .dimag-papers  a:visited
@@ -21,10 +22,22 @@ h1, h2, h3, h4, h5, h6 {
 	-webkit-transition:none;
 	transition:none;
 }
-.dimag-papers  a.doi {font-weight: 100;color:#555;font-size:small;}
-.dimag-papers  a.arxiv {font-weight: 100;color:#555;font-size:small;}
-.dimag-papers  span.lastupdated {font-weight:100;color:#555;font-size:small;display:none;}
-.dimag-papers li:hover  span.lastupdated {font-weight:100;color:#555;font-size:small;display:block;text-align:right;}
+.dimag-papers  .paperinfo a {font-weight: 100;color:#555;font-size:70%;}
+.dimag-papers  .paperinfo a.arxiv {float:left;margin-right:1em;}
+.dimag-papers  .paperinfo a.doi {float:right;margin-left:1em;}
+.dimag-papers  .paperinfo a.doi .lb {
+	background-color:#37af35;
+	border-radius: 6px 0 0 6px; padding-left:3px;padding-right:3px;
+	margin-right:2px;
+	color:#fff; font-weight:600; }
+.dimag-papers  .paperinfo a.arxiv .lb {
+	background-color:#8e7a26;
+	border-radius: 6px 0 0 6px; padding-left:3px;padding-right:3px;
+	margin-right:2px;
+	color:#fff; font-weight:600; }
+.dimag-papers  span.lastupdated {font-weight:100;color:#555;font-size:70%;display:none;}
+.dimag-papers li:hover  span.lastupdated {font-weight:100;color:#555;font-size:70%;display:block;float:left;}
+.dimag-papers li {clear:both;}
 #index-researcher label {display:inline-block;padding-right:1em;}
 .uagb-team__image-wrap {min-width:200px;}
 .wp-block-getwid-recent-posts .wp-block-getwid-recent-posts__post .wp-block-getwid-recent-posts__post-thumbnail a img {   border-radius: .5em;}
