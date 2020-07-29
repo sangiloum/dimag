@@ -124,6 +124,9 @@ function dimag_paper_content(){
 		'<span class="edit-link">',
 		'</span>'
 	);
+	echo '<span class="lastupdated">Last update: ';
+	the_modified_date('F j, Y');
+	echo '</span>';
 }
 function list_talks($atts){
     static $paper_no=0;

@@ -23,6 +23,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .dimag-papers  a.doi {font-weight: 100;color:#555;font-size:small;}
 .dimag-papers  a.arxiv {font-weight: 100;color:#555;font-size:small;}
+.dimag-papers  span.lastupdated {font-weight:100;color:#555;font-size:small;display:none;}
+.dimag-papers li:hover  span.lastupdated {font-weight:100;color:#555;font-size:small;display:block;text-align:right;}
 #index-researcher label {display:inline-block;padding-right:1em;}
 .uagb-team__image-wrap {min-width:200px;}
 .wp-block-getwid-recent-posts .wp-block-getwid-recent-posts__post .wp-block-getwid-recent-posts__post-thumbnail a img {   border-radius: .5em;}
