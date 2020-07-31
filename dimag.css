@@ -54,12 +54,11 @@ width:50%;
 	font-size: 80%;
 	font-weight:300;}
 
-body .tribe-events-single-event-title
+.single-tribe_events .tribe-events-single-event-title
 {
 	border-top: 8px solid #c63418;
 	border-bottom: 4px solid #847d84;
 	padding: 1vh 0 1vh 0;
-
 }
 ol.start { 
     counter-reset: mycounter; 
@@ -113,7 +112,12 @@ float: none;
 .single-tribe_events .site-header {display:none !important;}
 .single-tribe_events .tribe-events-event-categories
  {text-align:right ;width:100%;
-	border-bottom:0;height:0;}
+	border-bottom:0;height:0;font-weight:normal;font-size:14px;}
+.single-tribe_events .tribe-events-event-categories a {
+	font-size: 150%; font-weight:bold;
+color:#c63418 !important;
+font-variant:small-caps;
+}
 .single-tribe_events .tribe-events-content::after{
 content:"IBS Discrete Mathematics Group (기초과학연구원 이산수학그룹)";
 text-indent:0;
@@ -134,7 +138,7 @@ color:#222;
 	display:none !important;
 }
 .single-tribe_events .tribe-events-event-categories::before{
-content:"대전 유성구 엑스포로 55 IBS 이산수학그룹\A https://dimag.ibs.re.kr/";
+content:"기초과학연구원(IBS) 이산수학그룹 https://dimag.ibs.re.kr/";
 white-space:pre;
 text-indent:0;
 font-weight: 200;
