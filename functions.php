@@ -315,6 +315,13 @@ function nacin_filter_menu_target_sorry_world( $menu_item ) {
  //  curl_setopt( $curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
 //});
 
+// https://gist.github.com/jkudish/1843411
+// Change "http" to "webcal"
+function tribe_filter_ical_link($link) {
+	return str_replace('https://', 'webcal://', $link);
+}
+add_filter('tribe_get_ical_link', 'tribe_filter_ical_link');
+
 add_filter( 'wp_setup_nav_menu_item', 'nacin_filter_menu_target_sorry_world' );
 add_shortcode( 'papers', 'list_papers' );
 add_shortcode( 'talks', 'list_talks' );
