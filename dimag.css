@@ -2,6 +2,36 @@ body:not(.title-tagline-hidden) .site-branding-text {
     background: rgba(0, 0, 0, 0.7);
     padding: 10px;
 }
+div#rn-pbwp-div { position:absolute!important; z-index:1!important; height:100%;max-height:60vh;background-color:transparent !important;}
+.dms_ecs_category {
+	    border-left: 5px solid #82e500;
+    border-right: 5px solid transparent;
+    line-height: 1.4em;
+    padding-left: 5px;
+    padding-bottom: 2px;list-style:none;
+}
+.vdmc_ecs_category {
+	    border-left: 5px solid #334aff;
+    border-right: 5px solid transparent;
+    line-height: 1.4em;
+    padding-left: 5px;
+    padding-bottom: 2px;list-style:none;
+}
+.colloquium-ecs_category {
+	    border-left: 5px solid #a30395;
+    border-right: 5px solid transparent;
+    line-height: 1.4em;
+    padding-left: 5px;
+    padding-bottom: 2px;list-style:none;
+}
+.online-lecture-series-ecs_category {
+	border-left: 5px solid #f2f2f2;
+border-right: 5px solid transparent;
+line-height: 1.4em;
+padding-left: 5px;
+padding-bottom: 2px;list-style:none;
+}
+
 #content h2 {color: #c63418 ;}
 #content h2.ugb-feature__title {color: #222 ;}
 .ecs-event-list li {margin-top: 0.5em;}
