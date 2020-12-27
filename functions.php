@@ -330,3 +330,5 @@ add_shortcode( 'index-researchers', 'list_all_researchers' );
 add_action( 'widgets_init', 'dimag_widgets_init' );
 add_action( 'wp_enqueue_scripts', 'dimag_enqueue_styles' );
 add_action( 'admin_init', 'dimag_add_editor_style' );
+
+add_image_size( 'dimag-thumbnail', 600, 400, false );

@@ -177,6 +177,7 @@ display:block;
 color:#222;
 }
 
+#tribe-events, #tribe-events-pg-template, .tribe-events-pg-template { padding:0 0 0 ;}
 
 dt.tribe-events-event-categories { 
 	margin-bottom:3vh;
@@ -235,6 +236,9 @@ body:not(.title-tagline-hidden) .site-branding-text {
     width: 50%; /* Change this to whatever width you want. */
 }
 #index-researcher {display:none;}
-
+.tribe-ext-events-control-single-notice {
+	position: fixed;
+	bottom: 0;
+}
 }
 
