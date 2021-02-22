@@ -46,27 +46,27 @@ function dimag_talk_content(){
 	$city=trim(get_post_meta(get_the_id(),"city",true));
 	$country=trim(get_post_meta(get_the_id(),"country",true));
 	$url=trim(get_post_meta(get_the_id(),"url",true));
-	echo $talkdate, ": ";
+	echo esc_html($talkdate), ": ";
 	$terms=get_the_terms(get_the_id(),'researcher');
 	if ($terms && !is_wp_error($terms)){
 		foreach ($terms as $speaker):
-			echo "<strong>",$speaker->name, "</strong>, ";
+			echo "<strong>",esc_html($speaker->name), "</strong>, ";
 		endforeach;
 	}
 	if (!empty($url)) :
 		echo sprintf(
 			' <a href="%1$s"><i>%2$s</i></a>',
-			$url,$occasion);
+			esc_url($url),esc_html($occasion));
 	else:
-		echo $occasion;
+		echo esc_html($occasion);
 	endif;
 	if (!empty($full_dates)):
-		echo ' (', $full_dates,')';
+		echo ' (', esc_html($full_dates),')';
 	endif;
 	if (!empty($location)):
-		echo ", ", $location;
+		echo ", ", esc_html($location);
 	endif;
-	echo ", ", $city, ", ", $country,".";
+	echo ", ", esc_html($city), ", ", esc_html($country),".";
 	edit_post_link(
 		'<span class="dashicons dashicons-edit"></span>',
 		'<span class="edit-link">',
@@ -87,20 +87,27 @@ function dimag_paper_content(){
 		if (substr($doi,0,4)==="http") {
 			$link=sprintf(
 				' <a href="%1$s">',
-				str_replace('%2F','/',rawurlencode($doi)));
+				// str_replace('%2F','/',rawurlencode($doi))
+				esc_url($doi)
+			);
 		}
 		else {
 			$link=sprintf(
-				' <a href="https://doi.org/%1$s">',
-				str_replace('%2F','/',rawurlencode($doi)));
+				' <a href="%1$s">',
+				//str_replace('%2F','/',rawurlencode($doi))
+				esc_url("https://doi.org/".$doi)
+			);
 		}
 		echo str_replace(
 			"</em>","</em></a>",
-			str_replace("<em>",$link."<em>",$content));
+			str_replace("<em>",$link."<em>",$content)
+		);
 	elseif (!empty($arxiv)):
 		$link=sprintf(
-			' <a href="https://arxiv.org/abs/%1$s">',
-			rawurlencode($arxiv));
+			' <a href="%1$s">',
+			//rawurlencode($arxiv)
+			esc_url("https://arxiv.org/abs/".$arxiv)
+		);
 		echo str_replace(
 			"</em>","</em></a>",
 			str_replace("<em>",$link."<em>",$content));
@@ -116,13 +123,17 @@ function dimag_paper_content(){
 	echo '<div class="paperinfo">';
 	if (!empty($doi) && !(substr($doi,0,4)==="http")) {
 		echo sprintf(
-		' <a class="doi" href="https://doi.org/%1$s"><span class="lb">doi</span>%2$s</a>',
-		str_replace('%2F','/',rawurlencode($doi)),$doi);
+		' <a class="doi" href="%1$s"><span class="lb">doi</span><span class="hidden">:</span>%2$s</a>',
+		//str_replace('%2F','/',rawurlencode($doi)),$doi
+		esc_url("https://doi.org/".$doi),esc_html($doi)
+		);
 	}
 	if (!empty($arxiv)) {
 		echo sprintf(
-		' <a class="arxiv" href="https://arxiv.org/abs/%1$s"><span class="lb">arXiv</span>%2$s</a>',
-		rawurlencode($arxiv),$arxiv);
+		' <a class="arxiv" href="%1$s"><span class="lb">arXiv</span><span class="hidden">:</span>%2$s</a>',
+		//rawurlencode($arxiv),$arxiv
+		esc_url("https://arxiv.org/abs/".$arxiv),esc_html($arxiv)
+		);
 	}
 	echo '<span class="lastupdated">Last update: ';
 	the_modified_date('F j, Y');
@@ -169,12 +180,11 @@ function list_talks($atts){
 	    // run the loop based on the query
 	?> <ol class="dimag-papers dimag-talks" start="<?php echo $paper_no+1;?>"><?php 
 	    while ( $query->have_posts() ): $query->the_post()  ?>
-		<li class="<?php list_researcher_slug();?>">
+		<li class="<?php list_researcher_slug();?>" id="<?php the_ID();?>">
 		<?php
 		$paper_no++;
 		dimag_talk_content();
-		?>
-		</li>
+		?></li>
 	    <?php
 	    endwhile;?>
 		</ol>
@@ -223,12 +233,11 @@ function list_papers($atts){
 		echo $paper_no+1;
 		?>"><?php 
 	    while ( $query->have_posts() ): $query->the_post()  ?>
-		<li class="<?php list_researcher_slug();?>">
+		<li class="<?php list_researcher_slug();?>" id="<?php the_ID();?>">
 		<?php
 		$paper_no++;
 		dimag_paper_content();
-		?>
-		</li>
+		?></li>
 	    <?php
 	    endwhile;?>
 		</ol>
@@ -253,7 +262,7 @@ function list_all_researchers() {
         echo $researcher->slug?>)").forEach(e=>e.style.display="none");document.querySelectorAll("ol.dimag-papers > li.<?php echo $researcher->slug?>").forEach(e=>e.style.display="list-item");var p=1; document.querySelectorAll("ol.dimag-papers").forEach(e=> (e.start=p,p+=e.querySelectorAll("ol>li:not([style*=\"display: none;\"])").length))'>
 		<input type="radio" autocomplete="off"
 		name="author" 
-		id="<?php echo $researcher->slug;?>"><?php echo $researcher->name;?></label>
+		id="<?php echo esc_attr($researcher->slug);?>"><?php echo esc_html($researcher->name);?></label>
 		<?php
 	endforeach;
 
@@ -269,7 +278,7 @@ function list_researcher_slug(){
 	if ( ! empty( $post_terms ) && ! is_wp_error( $post_terms ) ) {
 	 
 	    foreach ($post_terms as $researcher_id):
-		echo $researcher_id->slug," ";
+		echo esc_attr($researcher_id->slug)," ";
 	    endforeach;
 	}
 }

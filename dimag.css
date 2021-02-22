@@ -101,7 +101,10 @@ ol.start > li:before, ol.continue > li:before {
     counter-increment: mycounter;
   margin-left:-1.3em;
 }
-
+.hidden {
+	color: rgba(0,0,0,0); 
+	font-size: 0;  
+}
 @media screen {
 	div.tribe-events-single-event-description a {
 		text-decoration:underline !important;

@@ -19,7 +19,7 @@
 	endif;
 	?>
 	<header class="entry-header">
-		Talks
+		<a href="/talks#<?php the_ID();?>">Talks</a>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content dimag-papers">

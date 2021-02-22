@@ -19,6 +19,7 @@
 	endif;
 	?>
 	<header class="entry-header">
+		<a href="/papers#<?php the_ID();?>">Papers</a> : 
 		<?php
 		paper_category();
 		?>
