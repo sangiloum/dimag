@@ -75,7 +75,6 @@ h1, h2, h3, h4, h5, h6 {
 .wp-block-getwid-recent-posts .wp-block-getwid-recent-posts__post .wp-block-getwid-recent-posts__post-thumbnail a img {   border-radius: .5em;}
 .post-thumbnail a img {border-radius:.5em; }
 ul {margin: 0 0 0;}
-.tribe-linked-type-tribe_ext_speaker a {text-decoration:underline;}
 dt.tribe-events-event-categories { 
      border-bottom:2px groove #777; /* This creates the border. Replace black with whatever color you want. */
 	text-align:center;
