@@ -76,9 +76,9 @@ $event_id = get_the_ID();
                                 // These details are already escaped in various ways earlier in the process.
                                 echo implode( $address_delimiter, $venue_details );
 
-                                if ( tribe_show_google_map_link() ) {
-                                        echo tribe_get_map_link_html();
-                                }
+//                                if ( tribe_show_google_map_link() ) {
+//                                       echo tribe_get_map_link_html();
+//                              }
                         ?>
                         </div> <!-- .tribe-events-venue-details -->
                 <?php endif; ?>
