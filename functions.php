@@ -46,6 +46,9 @@ function dimag_talk_content(){
 	$city=trim(get_post_meta(get_the_id(),"city",true));
 	$country=trim(get_post_meta(get_the_id(),"country",true));
 	$url=trim(get_post_meta(get_the_id(),"url",true));
+	if (strtotime("today")<strtotime($talkdate)) {
+		echo "<em>(scheduled)</em> ";
+	}
 	echo esc_html($talkdate), ": ";
 	$terms=get_the_terms(get_the_id(),'researcher');
 	if ($terms && !is_wp_error($terms)){
