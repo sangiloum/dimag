@@ -114,10 +114,12 @@ $event_id = get_the_ID();
 			<!-- .tribe-events-single-event-description -->
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
 
+
 			<!-- Event meta -->
 			<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
 			<?php tribe_get_template_part( 'modules/meta' ); ?>
 			<?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
+
 		</div> <!-- #post-x -->
 		<?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
 	<?php endwhile; ?>
@@ -136,3 +138,7 @@ $event_id = get_the_ID();
 	<!-- #tribe-events-footer -->
 
 </div><!-- #tribe-events-content -->
+<div id="event-logo">
+				<a href="/"><img class="event-logo-bottom" width="200" src="/cms/wp-content/themes/dimag/ibs-dimag-logo.svg" sizes="(max-width: 200px) 100vw, 200px" alt="IBS DIMAG" /></a>
+				<a href="https://www.ibs.re.kr/ecopro/"><img class="event-logo-bottom2" width="200" src="/cms/wp-content/themes/dimag/ibs-ecopro-logo.svg" sizes="(max-width: 200px) 100vw, 200px" alt="IBS ECOPRO" /></a>
+	</div>

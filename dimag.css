@@ -1,3 +1,13 @@
+
+.home .page .panel-content .ecs-event .entry-title  {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: normal;
+        text-transform: none;
+}
+
+
+
 body:not(.title-tagline-hidden) .site-branding-text {
     background: rgba(0, 0, 0, 0.7);
     padding: 10px;
@@ -114,25 +124,79 @@ ol.start > li:before, ol.continue > li:before {
 @media only screen and (max-width:768px) {
 #tribe-events-header .tribe-events-sub-nav li a {display:block;}
 }
+
+#event-logo {
+	text-align:center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width:100%;
+}
+#event-logo img {
+	padding-left: 5px;
+	padding-right: 5px;
+}
 @media print {
+	* {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}	
+	body.single-tribe_events {
+		/* height: 100vh;  */
+		page-break-inside: avoid;
+		page-break-after: avoid;
+		page-break-before: avoid;
+	}
+	/* #event-logo {
+		position: fixed;
+		bottom: 0mm;
+	} */
 
-#content,#page {
-width: 100%; 
-margin: 0; 
-float: none;
-}
-.single-tribe_events .content-area {
-/*margin-top: 0px !important;*/
-}
+	.single-tribe_events main {
+		display:grid;
+		min-height: 95vh;
+		grid-template-rows: 1fr auto;
+		grid-gap: 1em;
+		height: 100%;
+		padding: 0 0 0 0 ;
+	}
+	.single-tribe_events div.tribe-events-c-subscribe-dropdown__container {
+		display:none;
+	}
+	#content,#page {
+		width: 100%; 
+		margin: 0 0 0 0 ;
+		float: none;
+		line-height: 1.3 !important;
+	}
+/*.single-tribe_events .content-area {
+margin-top: 0px !important;
+}*/
+	/* @page {size:a4;} */
+	/** Setting margins */       
+	@page {size: jis-b4; margin: 1cm 1cm 1cm 1cm;}
+	/* @media (min-width:220mm) { */
+		/* @page {size: jis-b4;} */
 
-/** Setting margins */       
-@page { margin:1cm }
+		/* body.single-tribe_events  {
+			width: 257mm; 
+			height: 364mm; 			
+		} */
+		/* .single-tribe_events {
+			font-size: 120%; 
+		}
+	}  */
 
-.single-tribe_events img.logo-bottom {
+/*.single-tribe_events img.logo-bottom {
 		position: absolute;
 		top: 0; left:1%;
 		margin-left:-10.74px;
-	}
+	}*/
+/* .single-tribe_events img.logo-bottom {
+		position: fixed;
+		bottom: 0; left:1%;
+		margin-left:-10.74px;
+	} */
+.single-tribe_events img.logo-bottom {display:none;}
 .single-tribe_events .wrap {
 	padding-left: 1% !important;
 	padding-right: 1% !important;
@@ -141,14 +205,16 @@ float: none;
 }
 .single-tribe_events .site-header {display:none !important;}
 .single-tribe_events .tribe-events-event-categories
- {text-align:right ;width:100%;
-	border-bottom:0;height:0;font-weight:normal;font-size:14px;}
+ { /*text-align:right ;*/ width:100%; 
+	border-bottom:0;/*height:0;font-weight:normal;*/
+	font-size: 270%; margin-bottom: 0;
+	/* font-size:14px;*/ }
 .single-tribe_events .tribe-events-event-categories a {
-	font-size: 150%; font-weight:bold;
+	font-weight:bold;
 color:#c63418 !important;
 font-variant:small-caps;
 }
-.single-tribe_events .tribe-events-content::after{
+/* .single-tribe_events .tribe-events-content::after{
 content:"IBS Discrete Mathematics Group (기초과학연구원 이산수학그룹)";
 text-indent:0;
 font-weight: 700;
@@ -158,16 +224,50 @@ padding-top: 3vh;
 line-height:initial;
 color:#222;
 }
+.single-tribe_events .tag-ecopro .tribe-events-content::after{
+	content:"IBS Discrete Mathematics Group (기초과학연구원 이산수학그룹)\aIBS Extremal Combinatorics and Probability Group (기초과학연구원 극단 조합 및 확률 그룹)";
+	white-space: pre;
+	text-indent:0;
+	font-weight: 700;
+	text-align: right;
+	display:block;
+	padding-top: 3vh;
+	line-height:initial;
+	color:#222;
+	} */
+
 .single-tribe_events .tribe-events-single-event-title {
-	margin-top: 68.9px;
+	font-size: 200%;
+	padding: 0.5vh 0 0.5vh 0;
 }
+.single-tribe_events .tribe-events-schedule {
+	margin-top:8px; margin-bottom:8px;
+}
+.single-tribe_events .tribe-events-schedule h2 {
+	font-size: 180%; text-align:center;  width:100% !important;
+	margin-top:0; margin-bottom:0;
+}
+.single-tribe_events .tribe-events-schedule h2 span.tribe-event-date-start {
+	font-weight:700;
+}
+.single-tribe_events .tribe-events-venue-details {
+	width: 100% !important; text-align:center;
+}
+.single-tribe_events .tribe-events-url-details {
+	width: 100% !important; text-align:center;
+}
+
+
+/* .single-tribe_events .tribe-events-single-event-title {
+	margin-top: 68.9px;
+} */
 .single-tribe_events .tribe-events-event-categories{
 	font-weight:600;
 }
 .single-tribe_events .tribe-events-notices {
 	display:none !important;
 }
-.single-tribe_events .tribe-events-event-categories::before{
+/* .single-tribe_events .tribe-events-event-categories::before{
 content:"기초과학연구원(IBS) 이산수학그룹 https://dimag.ibs.re.kr/";
 white-space:pre;
 text-indent:0;
@@ -175,23 +275,24 @@ font-weight: 200;
 text-align: right;
 display:block;
 color:#222;
-}
+} */
 
 #tribe-events, #tribe-events-pg-template, .tribe-events-pg-template { padding:0 0 0 ;}
 
-dt.tribe-events-event-categories { 
+/* dt.tribe-events-event-categories { 
 	margin-bottom:3vh;
-}
+}*/
 #content #tribe-events-content h2 {color: #c63418 !important ; 
 	page-break-after: avoid;
 }
 #content .page-break {
-	page-break-before: always;
+	page-break-before: always !important;
+	break-before:page !important;
 }
 .tribe-events-back, .tribe-events-next, .tribe-events-before-html, .tribe-events-after-html, #tribe-events-footer,.tribe-events-single-section,.tribe-events-cal-links, .rtec-attendee-list-meta, #rtec{display:none !important;}
 .tribe-events-single-event-description p {
-	font-size:90%;
-line-height: 1.5 !important;
+	font-size:  100%;
+/* line-height: 1.3 !important; */
 }
 .site-content {padding: 0 0 0 !important;}
 .site-description {text-indent: -9999px;line-height:0;}
@@ -209,7 +310,7 @@ color:#222;
 .site-branding {display:block !important;
 	margin-bottom: 0em !important;
 	padding-bottom: 0;
-}
+} 
 .custom-header-media:before {height:0;}
 body:not(.title-tagline-hidden) .site-branding-text {
     background: #ffffff !important;
@@ -239,6 +340,44 @@ body:not(.title-tagline-hidden) .site-branding-text {
 .tribe-ext-events-control-single-notice {
 	position: fixed;
 	bottom: 0;
+}
+
+p.uagb-team__desc em {
+	display:none;
+}
+h2 {display:inline;}
+div.uagb-team__image-wrap  {
+	min-width: 80px !important;
+	width: 80px !important;
+	margin: 0px 5px 5px 5px !important;
+}
+img.uagb-team__image-crop-circle {
+	width: 80px !important;
+	height: 80px !important;
+}
+div.uagb-team__image-position-left div.uagb-team__content {
+	position:relative;top:0;
+}
+div.uagb-team__image-position-left p.uagb-team__desc {
+	text-align: right;
+	position: absolute;
+	top:0; 
+	right:0;
+}
+.uagb-team__image-position-left .uagb-team__content {
+	width: 100%;
+}
+.uagb-team__title-wrap{
+	float:left;
+}
+.wp-block-uagb-team {
+	page-break-inside: avoid;
+}
+.post-228 hr {
+	display:none;
+}
+.page-break-after {
+	page-break-after: always;
 }
 }
 
