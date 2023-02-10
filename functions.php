@@ -252,10 +252,11 @@ function list_papers($atts){
 }
 function list_all_researchers() {
 	ob_start();
-	?>
-	<div id="index-researcher" class="btn-group btn-group-toggle" data-toggle="buttons">
+	/* 
+	
+		<div id="index-researcher" class="btn-group btn-group-toggle" data-toggle="buttons">
 	<label class="btn btn-secondary active"  role="button"
-	onclick='document.querySelectorAll("ol.dimag-papers>li").forEach(e=>e.style.display="list-item");var p=1; document.querySelectorAll("ol.dimag-papers").forEach(e=> (e.start=p,p+=e.querySelectorAll("ol>li").length))' >
+	onclick='document.querySelectorAll("ol.dimag-papers>li").forEach(e=>e.style.display="list-item");var p=0; document.querySelectorAll("ol.dimag-papers").forEach(e=> (p+=e.querySelectorAll("ol>li").length));document.querySelectorAll("ol.dimag-papers").forEach(e=> (p.start=p; p-=e.querySelectorAll("ol>li").length));' >
 	<input type="radio" checked autocomplete="off" name="author" id="all">All</label>
 	<?php
 	foreach (get_terms( array('taxonomy' => 'researcher',
@@ -268,10 +269,42 @@ function list_all_researchers() {
 		id="<?php echo esc_attr($researcher->slug);?>"><?php echo esc_html($researcher->name);?></label>
 		<?php
 	endforeach;
+	
+	<label class="btn btn-secondary active"  role="button"
+	onclick='document.querySelectorAll("ol.dimag-papers>li").forEach(e=>e.style.display="list-item");var p=1; document.querySelectorAll("ol.dimag-papers").forEach(e=> (e.start=p,p+=e.querySelectorAll("ol>li").length))' > 
+	
+	
+	*/ 
+	?>
+	<div id="index-researcher" class="btn-group btn-group-toggle" data-toggle="buttons">
+	<label class="btn btn-secondary active"  role="button"
+	onclick='document.querySelectorAll("ol.dimag-papers>li").forEach(e=>e.style.display="list-item");var p=document.querySelectorAll("ol.dimag-papers>li").length;document.querySelectorAll("ol.dimag-papers").forEach(e=> (e.start=p, p-=e.querySelectorAll("ol>li").length));' >
+	<input type="radio" checked autocomplete="off" name="author" id="all">All</label>
+	<?php
+	foreach (get_terms( array('taxonomy' => 'researcher',
+				'orderby'=>'slug')) as $researcher): ?>
+	<label class="btn btn-secondary " role="button"  
+	onclick='document.querySelectorAll("ol.dimag-papers > li:not(<?php
+        echo $researcher->slug?>)").forEach(e=>e.style.display="none");document.querySelectorAll("ol.dimag-papers > li.<?php echo $researcher->slug?>").forEach(e=>e.style.display="list-item");var p=document.querySelectorAll("ol.dimag-papers > li:not([style*=\"display: none;\"])").length;document.querySelectorAll("ol.dimag-papers").forEach(e=> (e.start=p,p-=e.querySelectorAll("ol>li:not([style*=\"display: none;\"])").length))'>
+		<input type="radio" autocomplete="off"
+		name="author" 
+		id="<?php echo esc_attr($researcher->slug);?>"><?php echo esc_html($researcher->name);?></label>
+		<?php
+	endforeach;
 
 	?>
-	</div><?php
+	</div>
+	<?php
+	add_action('wp_footer', 'list_all_researchers_js');
 	return ob_get_clean();
+}
+function list_all_researchers_js(){
+	?>
+	<script>
+		document.querySelectorAll("ol.dimag-papers").forEach(e=>e.reversed="reversed");
+		document.querySelectorAll("ol.dimag-papers>li").forEach(e=>e.style.display="list-item");var p=document.querySelectorAll("ol.dimag-papers > li").length;document.querySelectorAll("ol.dimag-papers").forEach(e=> (e.start=p, p-=e.querySelectorAll("ol>li").length));
+	</script>	
+	<?php 
 }
 function list_researcher_slug(){
 	$taxonomy = 'researcher';
