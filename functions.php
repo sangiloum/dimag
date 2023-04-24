@@ -56,12 +56,15 @@ function dimag_talk_content(){
 			echo "<strong>",esc_html($speaker->name), "</strong>, ";
 		endforeach;
 	}
+	echo "&ldquo;<span class=\"title\">",get_the_title(),"</span>&rdquo;, ";
 	if (!empty($url)) :
 		echo sprintf(
 			' <a href="%1$s"><i>%2$s</i></a>',
 			esc_url($url),esc_html($occasion));
 	else:
-		echo esc_html($occasion);
+		echo sprintf(
+			' <i>%1$s</i>',
+			esc_html($occasion));
 	endif;
 	if (!empty($full_dates)):
 		echo ' (', esc_html($full_dates),')';
@@ -69,13 +72,13 @@ function dimag_talk_content(){
 	if (!empty($location)):
 		echo ", ", esc_html($location);
 	endif;
-	echo ", ", esc_html($city), ", ", esc_html($country),".";
+	echo ", ", esc_html($city), ", ", esc_html($country),". ";
+
 	edit_post_link(
 		'<span class="dashicons dashicons-edit"></span>',
 		'<span class="edit-link">',
 		'</span>'
 	);
-	echo "<ul><li>",get_the_title(),"</li></ul>";
 }
 function dimag_paper_content(){
 
@@ -183,7 +186,7 @@ function list_talks($atts){
 	    // run the loop based on the query
 	?> <ol class="dimag-papers dimag-talks" start="<?php echo $paper_no+1;?>"><?php 
 	    while ( $query->have_posts() ): $query->the_post()  ?>
-		<li class="<?php list_researcher_slug();?>" id="<?php the_ID();?>">
+		<li class="talk <?php list_researcher_slug();?>" id="<?php the_ID();?>">
 		<?php
 		$paper_no++;
 		dimag_talk_content();
@@ -236,7 +239,7 @@ function list_papers($atts){
 		echo $paper_no+1;
 		?>"><?php 
 	    while ( $query->have_posts() ): $query->the_post()  ?>
-		<li class="<?php list_researcher_slug();?>" id="<?php the_ID();?>">
+		<li class="paper <?php list_researcher_slug();?>" id="<?php the_ID();?>">
 		<?php
 		$paper_no++;
 		dimag_paper_content();
