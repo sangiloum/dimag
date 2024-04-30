@@ -46,6 +46,7 @@ function dimag_talk_content(){
 	$city=trim(get_post_meta(get_the_id(),"city",true));
 	$country=trim(get_post_meta(get_the_id(),"country",true));
 	$url=trim(get_post_meta(get_the_id(),"url",true));
+	$invited=trim(get_post_meta(get_the_id(),"invited",true));
 	if (strtotime("today")<strtotime($talkdate)) {
 		echo "<em>(scheduled)</em> ";
 	}
@@ -73,7 +74,9 @@ function dimag_talk_content(){
 		echo ", ", esc_html($location);
 	endif;
 	echo ", ", esc_html($city), ", ", esc_html($country),". ";
-
+	if (!empty($invited)):
+		echo "(Invited) ";
+	endif;
 	edit_post_link(
 		'<span class="dashicons dashicons-edit"></span>',
 		'<span class="edit-link">',
